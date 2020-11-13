@@ -4,9 +4,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>그냥 만들어 본 사이트</title>
+  <script>
+    var Links = {
+      setColor:function(color){
+      var alist = document.querySelectorAll('a');
+      var i = 0;
+      while( i < alist.length) {
+      alist[i].style.color = color;
+      i = i + 1;
+      }
+    }
+  }
+    var Body = {
+      setColor:function(color){
+        document.querySelector('body').style.color = color;
+      },
+      setBackgroundColor:function(color) {
+        document.querySelector('body').style.backgroundColor = color;
+      }
+    }
+
+    function nightDayHandler(self){
+    var target = document.querySelector('body');
+    if(self.value === 'Night Mode') {
+      Body.setBackgroundColor('black');
+      Body.setColor('white');
+      self.value = 'Day Mode';
+
+      Links.setColor('powderblue');
+
+    } else {
+      Body.setBackgroundColor('white');
+      Body.setColor('black');
+      self.value = 'Night Mode';
+
+      Links.setColor('blue');
+  }
+  }
+  </script>
 </head>
 <body>
   <h1><a href="index.html">첫 화면</a></h1>
+  <input type="button" value="Night Mode" onclick="
+    nightDayHandler(this);
+  ">
 <ol>
   <li><a href="1.html">태국 디자인 호텔</a></li>
   <li><a href="2.html">중국인</a></li>
